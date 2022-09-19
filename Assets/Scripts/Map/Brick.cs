@@ -24,6 +24,8 @@ namespace Map
             {
                 TrySpawnPowerUp();
                 MapFX fx = Pool<MapFX>.Instance.GetObject();
+                if (fx == null)
+                    return;
                 fx.transform.position = transform.position;
                 fx.PlayAnimation(AnimationType.explodeBrick);
             }
