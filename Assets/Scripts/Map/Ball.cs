@@ -1,3 +1,4 @@
+using System;
 using Game;
 using Patterns;
 using Platform;
@@ -15,7 +16,7 @@ namespace Map
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
         }
-
+        
         private void Start()
         {
             GameManager.Instance.OnDupliacteBall.AddListener(DuplicateBall);
@@ -30,6 +31,9 @@ namespace Map
 
         public void DuplicateBall()
         {
+            if (!gameObject.activeInHierarchy)
+                return;
+            GameManager.Instance.BallSpawned();
             var ball =Pool<Ball>.Instance.GetObject();
             if (ball != null)
             {

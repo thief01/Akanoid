@@ -21,8 +21,8 @@ namespace Game
         [SerializeField] private PlatformBallController platformBallController;
         [SerializeField] private int currentLifes=3;
         private int currentLevel=1;
-    
-    
+        private int currentBalls = 0;
+        
         private void Awake()
         {
             InitPools();
@@ -36,6 +36,9 @@ namespace Game
 
         public void BallDead()
         {
+            currentBalls--;
+            if (currentBalls > 0)
+                return;
             if (currentLifes <= 0)
             {
                 EndGame();
@@ -60,6 +63,11 @@ namespace Game
         
         }
 
+        public void BallSpawned()
+        {
+            currentBalls++;
+        }
+        
         private void InitPools()
         {
             Pool<Ball>.Instance.InitPool(100, ballPrefab);

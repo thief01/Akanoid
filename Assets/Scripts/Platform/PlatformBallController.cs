@@ -1,3 +1,4 @@
+using Game;
 using Map;
 using Patterns;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Platform
             if (holdingBall != null)
                 return;
             holdingBall = Pool<Ball>.Instance.GetObject();
+            GameManager.Instance.BallSpawned();
         }
 
         public void FreeBall()
