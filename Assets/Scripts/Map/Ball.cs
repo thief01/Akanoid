@@ -33,6 +33,8 @@ namespace Map
         {
             if (!gameObject.activeInHierarchy)
                 return;
+            if (rigidbody2D.velocity.magnitude <= 0.1f)
+                return;
             GameManager.Instance.BallSpawned();
             var ball =Pool<Ball>.Instance.GetObject();
             if (ball != null)
