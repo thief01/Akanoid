@@ -30,7 +30,7 @@ namespace Platform
 
             for (int i = 0; i < shootPoints.Length; i++)
             {
-                var bullet = Pool<Bullet>.Instance.GetObject();
+                Bullet bullet = Pool<Bullet>.Instance.GetObject();
                 if (bullet == null)
                     return;
                 bullet.transform.position = shootPoints[i].position;

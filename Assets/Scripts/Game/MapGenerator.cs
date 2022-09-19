@@ -40,7 +40,7 @@ namespace Game
             {
                 for (int j = 0; j < yCells; j++)
                 {
-                    var block = Pool<Brick>.Instance.GetObject();
+                    Brick block = Pool<Brick>.Instance.GetObject();
                     if(block==null)
                         return;
                     block.transform.position = GetPosition(i, j);

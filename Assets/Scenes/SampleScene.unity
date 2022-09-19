@@ -1547,6 +1547,10 @@ PrefabInstance:
       value: StaticMap
       objectReference: {fileID: 0}
     - target: {fileID: 3874985730730843471, guid: 12e33aff1f5a1bc42b15c4f3fd307576, type: 3}
+      propertyPath: vfxPrefab
+      value: 
+      objectReference: {fileID: 157775324824026017, guid: dbd0a721684fc5648bd541a814050660, type: 3}
+    - target: {fileID: 3874985730730843471, guid: 12e33aff1f5a1bc42b15c4f3fd307576, type: 3}
       propertyPath: platformBallController
       value: 
       objectReference: {fileID: 982658499}

@@ -23,6 +23,9 @@ namespace Map
             if (health <= 0)
             {
                 TrySpawnPowerUp();
+                MapFX fx = Pool<MapFX>.Instance.GetObject();
+                fx.transform.position = transform.position;
+                fx.PlayAnimation(AnimationType.explodeBrick);
             }
         }
 

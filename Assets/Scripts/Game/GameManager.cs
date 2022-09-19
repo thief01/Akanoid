@@ -19,6 +19,7 @@ namespace Game
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private GameObject brickPrefab;
         [SerializeField] private GameObject powerUpPrefab;
+        [SerializeField] private GameObject vfxPrefab;
         [SerializeField] private PlatformBallController platformBallController;
         [SerializeField] private int currentLifes=3;
         private int currentLevel=1;
@@ -81,6 +82,7 @@ namespace Game
             Pool<Brick>.Instance.InitPool(20*30, brickPrefab);
             Pool<PowerUp>.Instance.InitPool(25, powerUpPrefab);
             Pool<Bullet>.Instance.InitPool(25, bulletPrefab);
+            Pool<MapFX>.Instance.InitPool(50, vfxPrefab);
         }
 
         private void LoadData()
