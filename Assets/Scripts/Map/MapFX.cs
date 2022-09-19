@@ -32,10 +32,11 @@ namespace Map
         private IEnumerator DelayRemoveAnimation()
         {
             yield return new WaitForSeconds(0.1f);
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Null"))
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Null"))
             {
-                Pool<MapFX>.Instance.BackToPool(this);
+                yield return null;
             }
+            Pool<MapFX>.Instance.BackToPool(this);
         }
     }
 }
