@@ -30,6 +30,10 @@ namespace Map
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnEnable()
+        {
             rigidbody2D.velocity = -Vector2.up * speed;
         }
 
@@ -51,6 +55,7 @@ namespace Map
         public void SetPowerUpType(PowerUpType powerUpType)
         {
             spriteRenderer.sprite = sprites[(int)powerUpType];
+            this.powerUpType = powerUpType;
         }
     }
 }
