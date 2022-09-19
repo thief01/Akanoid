@@ -6,6 +6,8 @@ namespace Platform
 {
     public class PlatformWeapon : MonoBehaviour
     {
+        public int AmmoLeft => ammoLeft;
+        
         [SerializeField] private float attackSpeed;
         [SerializeField] private Transform[] shootPoints;
 
