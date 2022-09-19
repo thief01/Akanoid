@@ -152,4 +152,4 @@ MonoBehaviour:
   - {fileID: -482178234, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
   - {fileID: -1753460725, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
   - {fileID: -668392732, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
-  speed: 0
+  speed: 3.5
