@@ -11,6 +11,7 @@ namespace Game
     {
         public int CurrentLevel => currentLevel;
         public int CurrentLifes => currentLifes;
+        public int CurrentPoints => currentPoints;
 
         public UnityEvent OnDupliacteBall = new UnityEvent();
 
@@ -22,6 +23,7 @@ namespace Game
         [SerializeField] private int currentLifes=3;
         private int currentLevel=1;
         private int currentBalls = 0;
+        private int currentPoints;
         
         private void Awake()
         {
@@ -32,6 +34,11 @@ namespace Game
         {
             platformBallController.SetBall();
             MapGenerator.Instance.GenerateMap(currentLevel);
+        }
+
+        public void AddPoints(int value)
+        {
+            currentPoints += value;
         }
 
         public void BallDead()
