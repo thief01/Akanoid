@@ -40,7 +40,7 @@ namespace Map
 
         public void SetVelocity(Vector2 velocity)
         {
-            rigidbody2D.velocity = velocity * speed;
+            rigidbody2D.velocity = velocity.normalized * speed;
         }
 
         private void OnCollisionEnter2D(Collision2D col)
