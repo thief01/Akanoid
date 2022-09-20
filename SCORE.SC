@@ -1,1 +1,1 @@
-[{"name":"adfewfa","score":3254},{"name":"adfewfa","score":3254},{"name":"adfewfa","score":3254},{"name":"eafw","score":1540},{"name":"qwee","score":1150},{"name":"wqweq","score":340},{"name":"wqere","score":240}]
+[{"name":"adfewfa","score":3254},{"name":"adfewfa","score":3254},{"name":"adfewfa","score":3254},{"name":"eafw","score":1540},{"name":"qwee","score":1150},{"name":"adwdwq","score":860},{"name":"wqweq","score":340},{"name":"efaw","score":330},{"name":"qwdwq","score":240},{"name":"feawefaw","score":230}]
