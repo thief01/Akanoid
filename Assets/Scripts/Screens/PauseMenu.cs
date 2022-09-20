@@ -1,6 +1,8 @@
+using System.Collections;
 using Game;
 using General;
 using Patterns;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +11,7 @@ namespace Screens
     public class PauseMenu : MonoBehaviourSingleton<PauseMenu>
     {
         [SerializeField] private GameObject escapeMenu;
+        [SerializeField] private TextMeshProUGUI saved;
 
         private bool pasuedGame = false;
 
@@ -22,6 +25,7 @@ namespace Screens
         public void Save()
         {
             GameManager.Instance.SaveGame();
+            StartCoroutine(TextDelay());
         }
 
         public void BackToMenu()
@@ -33,6 +37,13 @@ namespace Screens
         public void ExitTheGame()
         {
             Application.Quit();
+        }
+
+        private IEnumerator TextDelay()
+        {
+            saved.gameObject.SetActive(true);
+            yield return new WaitForSeconds(2);
+            saved.gameObject.SetActive(false);
         }
     }
 }
