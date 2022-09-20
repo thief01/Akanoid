@@ -29,6 +29,18 @@ namespace Game
                 }
             }
         }
+
+        public void BrickDestroyed()
+        {
+            for (int i = 0; i < bricks.Count; i++)
+            {
+                if (!bricks[i].gameObject.activeInHierarchy)
+                {
+                    bricks.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
         
         public void GenerateMap(int levelNumber)
         {

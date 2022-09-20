@@ -24,6 +24,7 @@ namespace Patterns
         private static Pool<T> instance;
         
         public int CurrentPoolObjects => pooledObjects.Count;
+        public T[] PooledObjects => pooledObjects.ToArray();
 
         // public UnityEvent OnObjectDestroyed = new UnityEvent();
         public UnityEvent OnObjectSpawned = new UnityEvent();

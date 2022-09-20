@@ -51,12 +51,13 @@ namespace Map
                 return;
             if (rigidbody2D.velocity.magnitude <= 0.1f)
                 return;
-            GameManager.Instance.BallSpawned();
+            
             Ball ball =Pool<Ball>.Instance.GetObject();
             if (ball != null)
             {
                 ball.transform.position = transform.position;
                 ball.SetVelocity(-rigidbody2D.velocity);
+                GameManager.Instance.BallSpawned();
             }
         }
 
