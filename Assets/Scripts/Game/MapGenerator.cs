@@ -30,13 +30,7 @@ namespace Game
                 }
             }
         }
-
-        private void Update()
-        {
-            BrickDestroyed();
-        }
-
-
+        
         public void BrickDestroyed()
         {
             Debug.Log(bricks.Count);
