@@ -17,7 +17,12 @@ namespace Map
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
         }
-        
+
+        private void OnEnable()
+        {
+            rigidbody2D.velocity= Vector2.zero;
+        }
+
         private void Start()
         {
             GameManager.Instance.OnDupliacteBall.AddListener(DuplicateBall);
@@ -32,7 +37,6 @@ namespace Map
 
             if (col.gameObject.tag == "Player")
                 OnCollisionWithPlatform(col);
-        
         }
 
         public void FreeBall()
@@ -49,7 +53,7 @@ namespace Map
         {
             if (!gameObject.activeInHierarchy)
                 return;
-            if (rigidbody2D.velocity.magnitude <= 0.1f)
+            if (rigidbody2D.velocity.magnitude <= 0.2f)
                 return;
             
             Ball ball =Pool<Ball>.Instance.GetObject();

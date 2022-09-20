@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using General;
 using Map;
@@ -30,8 +31,15 @@ namespace Game
             }
         }
 
+        private void Update()
+        {
+            BrickDestroyed();
+        }
+
+
         public void BrickDestroyed()
         {
+            Debug.Log(bricks.Count);
             for (int i = 0; i < bricks.Count; i++)
             {
                 if (!bricks[i].gameObject.activeInHierarchy)
