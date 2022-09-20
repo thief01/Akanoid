@@ -1,3 +1,4 @@
+using Game;
 using Patterns;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Map
 {
     public class Brick : MonoBehaviour
     {
+        private const int POINTS_FOR_HIT = 10;
+        private const int POINTS_FOR_DESTROY = 90;
         public int Health => health;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private float chanceToSpawnPowerUp = 50;
@@ -19,6 +22,7 @@ namespace Map
     
         private void OnCollisionEnter2D(Collision2D col)
         {
+            GameManager.Instance.AddPoints(POINTS_FOR_HIT);
             SetHealth(health-1);
             if (health <= 0)
             {
@@ -28,6 +32,7 @@ namespace Map
                     return;
                 fx.transform.position = transform.position;
                 fx.PlayAnimation(AnimationType.explodeBrick);
+                GameManager.Instance.AddPoints(POINTS_FOR_DESTROY);
             }
         }
 
