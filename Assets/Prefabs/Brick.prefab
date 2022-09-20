@@ -105,6 +105,7 @@ MonoBehaviour:
   - {fileID: -1217370619, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
   - {fileID: 503057743, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
   - {fileID: -878412474, guid: 829687a5c6bb1f94bbf1c94add4d5c57, type: 3}
+  chanceToSpawnPowerUp: 50
 --- !u!61 &3660388104751308611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,16 +140,16 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3660388104751308616}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7

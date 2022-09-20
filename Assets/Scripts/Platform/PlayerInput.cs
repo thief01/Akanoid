@@ -33,6 +33,11 @@ namespace Platform
             {
                 platformBallController.FreeBall();
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseMenu.Instance.SwitchPause();
+            }
         }
     }
 }
