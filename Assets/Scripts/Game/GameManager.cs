@@ -50,19 +50,7 @@ namespace Game
             else
                 StartGame();
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                LoadGame();
-            }
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                SaveGame();
-            }
-        }
-
+        
         public void AddPoints(int value)
         {
             currentPoints += value;
