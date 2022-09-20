@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Patterns
 {
-    public class Pool<T>  where T : MonoBehaviour
+    public class Pool<T> where T : MonoBehaviour
     {
         private readonly Vector3 SAFE_POINT = new Vector3(-25, 0, 0);
         public static Pool<T> Instance
@@ -21,7 +22,7 @@ namespace Patterns
         }
 
         private static Pool<T> instance;
-
+        
         public int CurrentPoolObjects => pooledObjects.Count;
 
         // public UnityEvent OnObjectDestroyed = new UnityEvent();
@@ -30,11 +31,10 @@ namespace Patterns
         private List<T> pooledObjects = new List<T>();
         private GameObject prefab;
         private Transform poolParrent;
-
-    
-
+        
         public void InitPool(int items, GameObject gameObject)
         {
+            ClearPool();
             if (poolParrent == null)
             {
                 poolParrent = new GameObject().transform;
@@ -70,6 +70,18 @@ namespace Patterns
             t.gameObject.SetActive(false);
             pooledObjects.Add(t);
             // OnObjectDestroyed.Invoke();
+        }
+
+        public void ClearPool()
+        {
+            for (int i = 0; i < pooledObjects.Count; i++)
+            {
+                if (pooledObjects[i] != null)
+                {
+                    GameObject.Destroy(pooledObjects[i].gameObject);
+                }
+            }
+            pooledObjects.Clear();
         }
     }
 }

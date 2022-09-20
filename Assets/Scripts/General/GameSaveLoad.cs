@@ -28,6 +28,12 @@ namespace General
             return gameStateData;
         }
 
+        public static void RemoveSave()
+        {
+            if(File.Exists(SAVE_PATH))
+                File.Delete(SAVE_PATH);
+        }
+
         public static bool IsPosibleToLoadLevel()
         {
             return File.Exists(SAVE_PATH);

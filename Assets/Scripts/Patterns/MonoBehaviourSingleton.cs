@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Patterns
@@ -23,5 +24,10 @@ namespace Patterns
         }
 
         private static T instace;
+
+        private void OnDestroy()
+        {
+            instace = null;
+        }
     }
 }

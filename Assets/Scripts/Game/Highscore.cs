@@ -56,7 +56,8 @@ namespace Game
             if (id == -1)
                 return;
             scores.Insert(id, score);
-            scores.RemoveAt(scores.Count-1);
+            if(scores.Count< 10)
+                scores.RemoveAt(scores.Count-1);
         }
         
         public static void TryAddNewScore(string name, int value)

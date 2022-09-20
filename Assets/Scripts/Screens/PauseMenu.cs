@@ -1,35 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game;
+using General;
 using Patterns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviourSingleton<PauseMenu>
+namespace Screens
 {
-    [SerializeField] private GameObject escapeMenu;
-
-    private bool pasuedGame = false;
-
-    public void SwitchPause()
+    public class PauseMenu : MonoBehaviourSingleton<PauseMenu>
     {
-        pasuedGame = !pasuedGame;
-        escapeMenu.gameObject.SetActive(pasuedGame);
-        Time.timeScale = pasuedGame ? 0 : 1;
-    }
+        [SerializeField] private GameObject escapeMenu;
 
-    public void Save()
-    {
-        GameManager.Instance.SaveGame();
-    }
+        private bool pasuedGame = false;
 
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("Main Menu");
-    }
+        public void SwitchPause()
+        {
+            pasuedGame = !pasuedGame;
+            escapeMenu.gameObject.SetActive(pasuedGame);
+            Time.timeScale = pasuedGame ? 0 : 1;
+        }
 
-    public void ExitTheGame()
-    {
-        Application.Quit();
+        public void Save()
+        {
+            GameManager.Instance.SaveGame();
+        }
+
+        public void BackToMenu()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        public void ExitTheGame()
+        {
+            Application.Quit();
+        }
     }
 }

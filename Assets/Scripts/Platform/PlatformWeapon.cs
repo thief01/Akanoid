@@ -46,6 +46,12 @@ namespace Platform
             CheckWeapon();
         }
 
+        public void ResetWeapon()
+        {
+            ammoLeft = 0;
+            CheckWeapon();
+        }
+
         private void CheckWeapon()
         {
             for (int i = 0; i < shootPoints.Length; i++)

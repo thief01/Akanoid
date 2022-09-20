@@ -19,7 +19,7 @@ namespace UI
             Score[] scores = Game.Highscore.Scores;
             for (int i = 0; i < scores.Length; i++)
             {
-                highscore.text += $"\n{i}. {scores[i].name} {scores[i].score}";
+                highscore.text += $"\n{i+1}. {scores[i].name} {scores[i].score}";
             }
         }
         

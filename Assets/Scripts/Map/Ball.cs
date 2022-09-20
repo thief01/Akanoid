@@ -22,6 +22,18 @@ namespace Map
         {
             GameManager.Instance.OnDupliacteBall.AddListener(DuplicateBall);
         }
+        
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.tag == "DeathZone")
+            {
+                DestroyBall();
+            }
+
+            if (col.gameObject.tag == "Player")
+                OnCollisionWithPlatform(col);
+        
+        }
 
         public void FreeBall()
         {
@@ -53,19 +65,12 @@ namespace Map
             rigidbody2D.velocity = velocity.normalized * speed;
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        public void DestroyBall()
         {
-            if (col.gameObject.tag == "DeathZone")
-            {
-                GameManager.Instance.BallDead();
-                Pool<Ball>.Instance.BackToPool(this);
-            }
-
-            if (col.gameObject.tag == "Player")
-                OnCollisionWithPlatform(col);
-        
+            GameManager.Instance.BallDead();
+            Pool<Ball>.Instance.BackToPool(this);
         }
-
+        
         private void OnCollisionWithPlatform(Collision2D col)
         {
             if (col.contacts[0].normal.y > 0)

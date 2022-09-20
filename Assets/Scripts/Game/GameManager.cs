@@ -5,8 +5,10 @@ using General;
 using Map;
 using Patterns;
 using Platform;
+using Screens;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -28,6 +30,7 @@ namespace Game
         private int currentLevel=1;
         private int currentBalls = 0;
         private int currentPoints;
+        private bool restartingGame=false;
 
         private PlatformWeapon platformWeapon;
         private PlatformSize platformSize;
@@ -86,7 +89,33 @@ namespace Game
 
         public void EndGame()
         {
-            
+            GameOverScreen.Instance.ShowEndScreen();
+        }
+
+        public void RestartGame()
+        {
+            restartingGame = true;
+            Brick[] bricks = FindObjectsOfType<Brick>();
+            for (int i = 0; i < bricks.Length; i++)
+            {
+                bricks[i].DestroyBlock();
+            }
+
+            Ball[] balls = FindObjectsOfType<Ball>();
+            for (int i = 0; i < balls.Length; i++)
+            {
+                balls[i].DestroyBall();
+            }
+
+            platformSize.ResetSize();
+            platformWeapon.ResetWeapon();
+            platformBallController.SetBall();
+            currentLevel = 1;
+            currentLifes = 3;
+            currentLifes = 3;
+            currentPoints = 0;
+            MapGenerator.Instance.GenerateMap(currentLevel);
+            GameSaveLoad.RemoveSave();
         }
 
         public void SaveGame()
@@ -136,6 +165,8 @@ namespace Game
         public void BrickDestroyed()
         {
             if(MapGenerator.Instance.GeneratingLevel)
+                return;
+            if (restartingGame)
                 return;
             if (MapGenerator.Instance.BricksOnMap <= 0)
             {
