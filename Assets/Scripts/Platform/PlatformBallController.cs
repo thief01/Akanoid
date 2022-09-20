@@ -7,6 +7,7 @@ namespace Platform
 {
     public class PlatformBallController : MonoBehaviour
     {
+        public bool HasBall => holdingBall != null;
         [SerializeField] private Transform spawnBallPosition;
         private Ball holdingBall;
 

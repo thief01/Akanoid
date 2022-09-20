@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using General;
 using Map;
 using Patterns;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Game
 {
     public class MapGenerator : MonoBehaviourSingleton<MapGenerator>
     {
+        public bool GeneratingLevel { get; private set; }
+        public int BricksOnMap => bricks.Count;
         private const int MAX_HEALTH = 5;
         private const float X_SIZE = 0.67f;
         private const float Y_SIZE = 0.27f;
@@ -26,9 +29,10 @@ namespace Game
                 }
             }
         }
-
+        
         public void GenerateMap(int levelNumber)
         {
+            GeneratingLevel = true;
             Unity.Mathematics.Random r = new Unity.Mathematics.Random((uint)levelNumber);
         
             for (int i = 0; i < bricks.Count; i++)
@@ -48,6 +52,27 @@ namespace Game
                     bricks.Add(block);
                 }
             }
+
+            GeneratingLevel = false;
+        }
+
+        public void LoadLevel(List<BrickData> brickDatas)
+        {
+            GeneratingLevel = true;
+            for (int i = 0; i < bricks.Count; i++)
+            {
+                bricks[i].DestroyBlock();
+            }
+            bricks.Clear();
+            for (int i = 0; i < brickDatas.Count; i++)
+            {
+                Brick brick = Pool<Brick>.Instance.GetObject();
+                brick.SetHealth(brickDatas[i].Health);
+                brick.transform.position = new Vector3(brickDatas[i].Position.X, brickDatas[i].Position.Y, 0);
+                bricks.Add(brick);
+            }
+
+            GeneratingLevel = false;
         }
 
         private Vector3 GetPosition(int x, int y)

@@ -9,6 +9,7 @@ namespace Map
 {
     public class Ball : MonoBehaviour
     {
+        public Vector2 Velocity => rigidbody2D.velocity;
         [SerializeField] private float speed;
         private Rigidbody2D rigidbody2D;
 

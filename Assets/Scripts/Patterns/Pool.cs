@@ -24,7 +24,7 @@ namespace Patterns
 
         public int CurrentPoolObjects => pooledObjects.Count;
 
-        public UnityEvent OnObjectDestroyed = new UnityEvent();
+        // public UnityEvent OnObjectDestroyed = new UnityEvent();
         public UnityEvent OnObjectSpawned = new UnityEvent();
 
         private List<T> pooledObjects = new List<T>();
@@ -69,7 +69,7 @@ namespace Patterns
         {
             t.gameObject.SetActive(false);
             pooledObjects.Add(t);
-            OnObjectDestroyed.Invoke();
+            // OnObjectDestroyed.Invoke();
         }
     }
 }

@@ -50,6 +50,7 @@ namespace Map
 
         public void DestroyBlock()
         {
+            GameManager.Instance.BrickDestroyed();
             Pool<Brick>.Instance.BackToPool(this);
         }
 
