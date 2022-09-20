@@ -26,10 +26,12 @@ public class MouseDestroyer : MonoBehaviour
         }
     }
 
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         Handles.DrawWireDisc(pos, Vector3.forward, size );
     }
+    #endif
 }
